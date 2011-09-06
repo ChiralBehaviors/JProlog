@@ -1,0 +1,62 @@
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>jp.ac.kobe_u</groupId>
+    <artifactId>prolog-builtin</artifactId>
+    <version>1.2.5.h-SNAPSHOT</version>
+    <name>Prolog Builtin Functions</name>
+    <description>Built-in functions for Prolog</description>
+    <repositories>
+        <repository>
+            <id>nexus-repo</id>
+            <url>http://repository.sonatype.org/content/groups/public
+            </url>
+            <name>nexus</name>
+        </repository>
+
+        <repository>
+            <id>3rdSpace-repo</id>
+            <url>http://svn.tensegrity.hellblazer.com/3Space/trunk/local-repository/</url>
+            <name>3rdSpace</name>
+        </repository>
+    </repositories>
+    <dependencies>
+        <dependency>
+            <groupId>jp.ac.kobe_u</groupId>
+            <artifactId>prolog-lang</artifactId>
+            <version>1.2.5.h-SNAPSHOT</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.hellblazer</groupId>
+                <artifactId>prolog-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <debug>true</debug>
+                    <fork>true</fork>
+                    <meminitial>128m</meminitial>
+                    <maxmem>512m</maxmem>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
