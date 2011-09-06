@@ -1,0 +1,7 @@
+A Prolog compiler.  Run Prolog on the Java VM.  Also provides a Maven plugin for building Prolog projects.
+
+Built with Maven 2.x:
+
+	cd <root>
+	mvn clean install
+	
